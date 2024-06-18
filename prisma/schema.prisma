@@ -1,0 +1,78 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model histori_transaksi {
+  ID_Histori             Int        @id @default(autoincrement())
+  Total_Pembayaran       Decimal?   @db.Decimal(9, 3)
+  Tanggal_Transaksi      DateTime?  @db.DateTime(0)
+  transaksi_id_transaksi Int?
+  transaksi              transaksi? @relation(fields: [transaksi_id_transaksi], references: [ID_Transaksi], onDelete: Restrict, onUpdate: Restrict, map: "histori_transaksi_ibfk_1")
+
+  @@index([transaksi_id_transaksi], map: "transaksi_id_transaksi")
+}
+
+model laporan_keuangan {
+  ID_Laporan             Int        @id @default(autoincrement())
+  Tanggal_Laporan        DateTime?  @default(now()) @db.DateTime(0)
+  Total_Pendapatan       Decimal?   @db.Decimal(9, 3)
+  transaksi_id_transaksi Int?
+  transaksi              transaksi? @relation(fields: [transaksi_id_transaksi], references: [ID_Transaksi], onDelete: Restrict, onUpdate: Restrict, map: "laporan_keuangan_ibfk_1")
+
+  @@index([transaksi_id_transaksi], map: "transaksi_id_transaksi")
+}
+
+model metode_pembayaran {
+  ID_Metode   Int         @id @default(autoincrement())
+  Nama_Metode String?     @db.VarChar(20)
+  transaksi   transaksi[]
+}
+
+model pengguna {
+  ID_Pengguna         Int         @id @default(autoincrement())
+  Nama_Pengguna       String?     @db.VarChar(255)
+  Email               String?     @db.VarChar(255)
+  Kata_Sandi          String?     @db.VarChar(20)
+  Tanggal_Pendaftaran DateTime?   @default(now()) @db.DateTime(0)
+  transaksi           transaksi[]
+}
+
+model produk_top_up {
+  ID_Produk   Int         @id @default(autoincrement())
+  Nama_Produk String?     @db.VarChar(255)
+  Nominal     Decimal?    @db.Decimal(20, 3)
+  Harga       Decimal?    @db.Decimal(20, 3)
+  Kategori    String?     @db.VarChar(255)
+  diskon      Int?        @default(0)
+  Pajak       Decimal?    @db.Decimal(20, 3)
+  transaksi   transaksi[]
+
+  @@index([diskon], map: "idx_diskon")
+  @@index([Kategori], map: "idx_kategori")
+}
+
+model transaksi {
+  ID_Transaksi         Int                 @id @default(autoincrement())
+  Tanggal_Transaksi    DateTime?           @default(now()) @db.DateTime(0)
+  Total_Pembayaran     Decimal?            @db.Decimal(20, 3)
+  Status_Pembayaran    String?             @db.VarChar(5)
+  AccID                String?             @db.VarChar(150)
+  Jasa                 Decimal?            @db.Decimal(20, 3)
+  pengguna_id_pengguna Int?
+  produk_id_produk     Int?
+  metode_id_metode     Int?
+  histori_transaksi    histori_transaksi[]
+  laporan_keuangan     laporan_keuangan[]
+  pengguna             pengguna?           @relation(fields: [pengguna_id_pengguna], references: [ID_Pengguna], onDelete: Restrict, onUpdate: Restrict, map: "transaksi_ibfk_1")
+  produk_top_up        produk_top_up?      @relation(fields: [produk_id_produk], references: [ID_Produk], onDelete: Restrict, onUpdate: Restrict, map: "transaksi_ibfk_2")
+  metode_pembayaran    metode_pembayaran?  @relation(fields: [metode_id_metode], references: [ID_Metode], onDelete: Restrict, onUpdate: Restrict, map: "transaksi_ibfk_3")
+
+  @@index([metode_id_metode], map: "metode_id_metode")
+  @@index([pengguna_id_pengguna], map: "pengguna_id_pengguna")
+  @@index([produk_id_produk], map: "produk_id_produk")
+}
