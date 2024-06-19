@@ -64,7 +64,16 @@ app.post('/api/transaksi', async (req, res) => {
       res.status(400).json({ error: error.message });
     }
   });
-  
+
+  // Get all produk_top_up endpoint
+app.get('/api/produk_top_up', async (req, res) => {
+  try {
+    const produkTopUpList = await prisma.produk_top_up.findMany();
+    res.status(200).json(produkTopUpList);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+}); 
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
