@@ -73,7 +73,23 @@ app.get('/api/produk_top_up', async (req, res) => {
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
-}); 
+});
+
+  // Get specific produk_top_up kategori endpoint
+  // Contoh url request = /api/produk_top_up?kategori=someKategoriValue (jangan lupa query parameternnya)
+app.get('/api/produk_top_up_spec', async (req, res) => {
+  const { kategori } = req.query; // Extract the kategori parameter from the query string
+  try {
+    const produkTopUpList = await prisma.produk_top_up.findMany({
+      where: {
+        Kategori: kategori, // Add the filter condition for kategori
+      },
+    });
+    res.status(200).json(produkTopUpList);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
