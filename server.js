@@ -91,6 +91,21 @@ app.get('/api/produk_top_up_spec', async (req, res) => {
   }
 });
 
+app.get('/api/produk_top_up_disc', async (req, res) => {
+  try {
+    const produkTopUpList = await prisma.produk_top_up.findMany({
+      where: {
+        diskon: {
+          gt: 0, // Filter condition where Diskon is greater than 0
+        },
+      },
+    });
+    res.status(200).json(produkTopUpList);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
