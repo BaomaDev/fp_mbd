@@ -23,7 +23,7 @@ export function Navbar() {
 
   return (
     <>
-      <header className='fixed top-0 z-[100] w-full bg-cream-2 text-blue-3'>
+      <header className='fixed top-0 z-[100] w-full bg-blue-1 text-blue-3'>
         <div className='layout relative flex h-16 flex-row items-center justify-between px-10 text-center md:h-20 lg:px-14'>
 
         <div className='align-center flex flex-row items-center justify-center gap-3'>
@@ -53,7 +53,7 @@ export function Navbar() {
               <li className='decoration-blue-3 decoration-2 hover:underline'>
                 <Link href='/'>
                   <h1 className='font-poppins text-[18px] font-medium text-blue-3'>
-                  Contact Us
+                  Discounts
                   </h1>
                 </Link>
               </li>

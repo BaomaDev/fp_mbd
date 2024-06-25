@@ -23,12 +23,9 @@ const config: Config = {
           1: '#EFFCFE',
           2: '#D3F9FF',
           3: '#00487C',
-          card: '#D3DDF1'
+          4: '#4E9AD2',
         },
-        
-        minHeight: {
-          '900': '972px',
-        },
+
       },
     },
   },
