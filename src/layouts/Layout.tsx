@@ -1,5 +1,4 @@
 import Navbar from '@/layouts/Navbar';
-import Footer from '@/layouts/Footer';
 import { LayoutProps } from '@/types/layout';
 
 export default function Layout({
@@ -10,7 +9,6 @@ export default function Layout({
   return (
     <>
       {children}
-      {withFooter && <Footer />}
       {withNavbar && <Navbar />}
     </>
   );
