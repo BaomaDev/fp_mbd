@@ -43,7 +43,7 @@ export function Navbar() {
               </li>
 
               <li className='decoration-blue-3 decoration-2 hover:underline'>
-                <Link href='/#todaysoffer'>
+                <Link href='/topup'>
                   <h1 className='font-poppins text-[18px] font-medium text-blue-3'>
                     Top Up
                   </h1>

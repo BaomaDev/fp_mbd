@@ -38,10 +38,10 @@ export default function Home() {
           {" "}
           GAMING PRODUCTS{" "}
         </h2>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        <Card title="Mobile Legends"/>
+        <Card title="AfterLife"/>
+        <Card title="Sausage Man"/>
+        <Card title="Honkai Star Rail"/>
 
         <div className="decoration-blue-3 decoration-2 underline underline-offset-1">
           <Link href="/about-us">
@@ -57,10 +57,10 @@ export default function Home() {
           {" "}
           HOUSE NEEDS{" "}
         </h2>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        <Card title="Token PLN"/>
+        <Card title="Pulsa Indosat"/>
+        <Card title="Pulsa IM3"/>
+        <Card title="Pulsa XL"/>
 
         <div className="decoration-blue-3 decoration-2 underline underline-offset-1">
           <Link href="/about-us">
