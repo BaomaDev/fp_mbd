@@ -7,11 +7,11 @@ import NextImage from '@/components/NextImage';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen py-24 bg-blue-1">
+    <main className="min-h-screen py-24 bg-blue-1">
       
       <Navbar />
 
-      <div className="flex px-[55px] py-[75px] min-h-screen flex-col">
+      <div id='about-us' className="flex px-[55px] py-[75px] min-h-screen">
         <div className="flex min-h-screen flex-col">
           <a className="font-poppins text-[30px] font-medium text-blue-3 font-bold">
             BACUEMI{" "}
@@ -30,45 +30,47 @@ export default function Home() {
           <img src="/img/kunai.png" alt="kunai"/>
         </div>
       </div>
-
-      <div className='flex flex-row mx-4'>
-
-      <div className='flex flex-col mx-12'>
-        <h2 className='font-lemonMilk text-[30px] font-medium text-blue-3 my-5'> GAMING PRODUCTS </h2>
-      <Card/>
-      <Card/>
-      <Card/>
-      <Card/>
-
-      <div className='decoration-blue-3 decoration-2 underline underline-offset-1'>
-                <Link href='/about-us'>
-                  <p className='font-poppins text-[18px] font-medium text-blue-3 '>
-                   see more GAMING PRODUCTS
-                  </p>
-                </Link>
-              </div>
-      </div>
-
-      <div className='flex flex-col'>
-      <h2 className='font-lemonMilk text-[30px] font-medium text-blue-3 my-5'> HOUSE NEEDS </h2>
-      <Card/>
-      <Card/>
-      <Card/>
-      <Card/>
-
-      <div className='decoration-blue-3 decoration-2 underline underline-offset-1'>
-                <Link href='/about-us'>
-                  <p className='font-poppins text-[18px] font-medium text-blue-3 '>
-                   see more HOUSE NEEDS
-                  </p>
-                </Link>
-              </div>
       
+      
+      <div className="flex flex-row mx-8">
+      <div className="flex flex-col mx-4">
+        <h2 className="font-lemonMilk text-[30px] font-medium text-blue-3 my-5">
+          {" "}
+          GAMING PRODUCTS{" "}
+        </h2>
+        <Card />
+        <Card />
+        <Card />
+        <Card />
 
+        <div className="decoration-blue-3 decoration-2 underline underline-offset-1">
+          <Link href="/about-us">
+            <p className="font-poppins text-[18px] font-medium text-blue-3 ">
+              see more GAMING PRODUCTS
+            </p>
+          </Link>
+        </div>
       </div>
 
+      <div className="flex flex-col">
+        <h2 className="font-lemonMilk text-[30px] font-medium text-blue-3 my-5">
+          {" "}
+          HOUSE NEEDS{" "}
+        </h2>
+        <Card />
+        <Card />
+        <Card />
+        <Card />
 
+        <div className="decoration-blue-3 decoration-2 underline underline-offset-1">
+          <Link href="/about-us">
+            <p className="font-poppins text-[18px] font-medium text-blue-3 ">
+              see more HOUSE NEEDS
+            </p>
+          </Link>
+        </div>
       </div>
+    </div>
 
     </main>
   );

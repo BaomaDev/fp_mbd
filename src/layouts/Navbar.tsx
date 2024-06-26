@@ -35,7 +35,7 @@ export function Navbar() {
           <nav className='hidden lg:block'>
             <ul className='flex flex-row items-center justify-between gap-3 text-base xl:gap-6 '>
               <li className='decoration-blue-3 decoration-2 hover:underline'>
-                <Link href='/about-us'>
+                <Link href='/#about-us'>
                   <h1 className='font-poppins text-[18px] font-medium text-blue-3 '>
                     About Us
                   </h1>
