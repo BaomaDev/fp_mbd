@@ -7,7 +7,8 @@ import NextImage from '@/components/NextImage';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-blue-1">
+    <main className="flex min-h-screen py-24 bg-blue-1">
+      
       <Navbar />
 
       <div className="flex px-[55px] py-[75px] min-h-screen flex-col">
