@@ -44,7 +44,7 @@ export default function Home() {
         <Card title="Honkai Star Rail"/>
 
         <div className="decoration-blue-3 decoration-2 underline underline-offset-1">
-          <Link href="/about-us">
+          <Link href="/topup">
             <p className="font-poppins text-[18px] font-medium text-blue-3 ">
               see more GAMING PRODUCTS
             </p>
@@ -63,7 +63,7 @@ export default function Home() {
         <Card title="Pulsa XL"/>
 
         <div className="decoration-blue-3 decoration-2 underline underline-offset-1">
-          <Link href="/about-us">
+          <Link href="/topup">
             <p className="font-poppins text-[18px] font-medium text-blue-3 ">
               see more HOUSE NEEDS
             </p>

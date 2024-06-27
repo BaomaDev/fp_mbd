@@ -13,7 +13,7 @@ export default function Home() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('/api/produk_top_up_unique');
+        const response = await fetch('/api/produk_top_up_disc');
         const data = await response.json();
         console.log('Gaming Products:', data);
         setGamingProducts(data.produkTopUpList || []);
