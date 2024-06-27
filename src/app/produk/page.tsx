@@ -1,11 +1,8 @@
 
 'use client';
-import { LemonMilk, poppins } from '@/lib/font';
 import Navbar from '@/layouts/Navbar';
-import Card from '@/components/Card';
 import CardProduct from '@/components/CardProduct';
 import Link from 'next/link';
-import NextImage from '@/components/NextImage';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 
@@ -47,7 +44,7 @@ export default function Home() {
         <div className='flex flex-wrap gap-6 items-center justify-center'>
           {gamingProducts.map((product, index) => (
             <button onClick={() => setidProduk(product.ID_Produk)}>
-              <CardProduct key={index} title={product.Nama_Produk} />
+              <CardProduct key={index} title={product.Nama_Produk} price={product.Harga}/>
             </button>
           ))}
         </div>
